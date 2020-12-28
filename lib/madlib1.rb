@@ -8,11 +8,16 @@ class Madlib1
     end
     
     def create_list
-        
+        input = ""
         @word_list.each_with_index do |word, index|
-            puts "Enter a(n) #{word}"
-            @new_list << gets.strip.downcase
-
+            puts "Enter a(n) #{word} or type 'random' for a random #{word}"
+            input = gets.strip.downcase
+                if input != "random"
+                    @new_list << input
+                else
+                    #This will connect to the API class to search for a random word that matches the word type and then shovels it into @new_list
+                    @new_list << "random"
+                end
         end
         complete_madlib
     end

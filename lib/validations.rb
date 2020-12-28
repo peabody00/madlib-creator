@@ -1,4 +1,4 @@
-module validations
+module Validations
 
     def verb?
     end
