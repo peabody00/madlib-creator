@@ -30,6 +30,9 @@ class CLI
                 puts "Here is Mad Lib 3"
             when "4"
                 puts "Enter word to define"
+                word = gets.strip.downcase
+                API.new(word).definition
+                main_menu
             when "menu"
                 main_menu
             end
