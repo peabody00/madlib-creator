@@ -1,7 +1,9 @@
 class CLI
 
     def call
+        puts ""
         puts "Welcome to the Mad Lib Creator"
+        puts ""
         main_menu
         user_input
         exit_program
@@ -15,6 +17,7 @@ class CLI
         puts "4. Define word"
         puts "Type 'menu' to see options again"
         puts "Type 'exit' when you are done"
+        puts ""
     end
 
     def user_input
@@ -40,7 +43,9 @@ class CLI
     end
 
     def exit_program
+        puts "--------------------------------------------------------"
         puts "Thanks for trying the Mad Lib Creator"
         puts "Mad Libs created by Leonard Stern and Roger Price, 1953."
+        puts "--------------------------------------------------------"
     end
 end

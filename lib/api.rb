@@ -41,17 +41,22 @@ class API
             def_hash.each do |var1, var2|
                 word_array.push(var2)
             end
-            puts word_array[1].capitalize + " - " + word_array[0]
+            puts word_array[1].capitalize.blue + " - " + word_array[0].blue
         end
-        
+        puts "-------------------------".blue
+        puts ""
     end
 
-
+    def random_word
+        @url_combined = URI(URL + "?random=true")
+        self.connection(url_combined)
+        @word_hash["word"]
+    end
 
 end
 
-# word = API.new("shoe").definition
-
+# word = API.new("shoe").random_word
+# puts word
 # puts "Please enter word to search "
 # word = gets.chomp.downcase
 
