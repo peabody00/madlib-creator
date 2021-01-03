@@ -34,14 +34,17 @@ class API
     def definition
         @url_combined = URI(URL + @word + "/definitions")
         self.connection(url_combined)
-        # puts @word_hash
 
-        @word_hash["definitions"].each do |def_hash|
-            word_array = []
-            def_hash.each do |var1, var2|
-                word_array.push(var2)
+        if @word_hash["success"] == false
+            puts "Your word doesn't appear to be valid.  Please try again".red
+        else
+            @word_hash["definitions"].each do |def_hash|
+                word_array = []
+                def_hash.each do |var1, var2|
+                    word_array.push(var2)
+                end
+                puts word_array[1].capitalize.blue + " - " + word_array[0].blue
             end
-            puts word_array[1].capitalize.blue + " - " + word_array[0].blue
         end
         puts "-------------------------".blue
         puts ""
