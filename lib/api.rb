@@ -1,12 +1,13 @@
 class API
-    attr_accessor :word, :url_combined, :word_hash
+    attr_accessor :word, :url_combined, :word_hash, :part_of_speech
 
     URL = "https://wordsapiv1.p.rapidapi.com/words/"
 
-    def initialize(word)
+    def initialize(word, part_of_speech = "")
         @word = word
         @word_hash = ""
         @url_combined = ""
+        @part_of_speech = part_of_speech
     end
 
     def connection(url_combined)
@@ -33,6 +34,9 @@ class API
             @word_hash["definitions"].each do |def_hash|
                 word_array = []
                 def_hash.each do |var1, var2|
+                    if var2 == nil
+                        var2 = "No Part of Speech Given"
+                    end
                     word_array.push(var2)
                 end
                 puts word_array[1].capitalize.blue + " - " + word_array[0].blue
@@ -43,7 +47,8 @@ class API
     end
 
     def random_word
-        @url_combined = URI(URL + "?random=true")
+        # @url_combined = URI(URL + "?random=true")
+        @url_combined = URI(URL + "?partOfSpeech=" + @part_of_speech + "&random=true&frequencyMin=5.00&limit=1")
         self.connection(url_combined)
         @word_hash["word"]
     end

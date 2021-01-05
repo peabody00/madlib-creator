@@ -12,10 +12,8 @@ class Madlib1
         puts "Would you like to randomly generate the words for this Mad Lib? (y/n)"
         input = gets.strip.downcase
         if input == "y"
-            # This will connect to API Class to randomly generate the entire list of words for the Mad Lib.  Still needs validation.
-            # If @word_list element is a noun it needs to randomly find a noun.
             @word_list.each do |n| 
-                @new_list << API.new("random").random_word
+                @new_list << API.new("random", n).random_word
             end
             complete_madlib
         elsif input == "n"
@@ -39,7 +37,7 @@ class Madlib1
                     # while valid == false
                     #     puts "I am sorry.  Your word appears to not be a(n) #{word.green}.  Please try again."
                     #     input = gets.strip.downcase
-                    
+
                     @new_list << input
                 else
                     #This will connect to the API class to search for a random word that matches the word type and then shovels it into @new_list
