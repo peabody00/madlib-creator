@@ -29,19 +29,16 @@ class Madlib1
         @word_list.each_with_index do |word, index|
             puts "Enter a(n) #{word.green} or type 'random' for a random #{word.green}"
             input = gets.strip.downcase
-                if input != "random"
-                    #I want to add validation to this step so program can look up word entered and make sure it matches the part of speech being asked for
-                    
-                    # In progress code
-                    # valid = API.new(input).valid_partofspeech?
-                    # while valid == false
-                    #     puts "I am sorry.  Your word appears to not be a(n) #{word.green}.  Please try again."
-                    #     input = gets.strip.downcase
-
+                if input != "random"            
+                    valid = API.new(input,word).valid_partofspeech?
+                    while valid == false
+                        puts "I am sorry.  Your word does not appear to be a(n) #{word.green}.  Please try again."
+                        input = gets.strip.downcase
+                        valid = API.new(input,word).valid_partofspeech?
+                    end
                     @new_list << input
                 else
-                    #This will connect to the API class to search for a random word that matches the word type and then shovels it into @new_list
-                    @new_list << API.new("random").random_word
+                    @new_list << API.new("random", word).random_word
                 end
         end
         complete_madlib
