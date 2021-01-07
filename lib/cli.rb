@@ -15,7 +15,7 @@ class CLI
         puts "2. Mad Lib 2"
         puts "3. Mad lib 3"
         puts "4. Define word"
-        puts "Type 'menu' to see options again"
+        # puts "Type 'menu' to see options again"
         puts "Type 'exit' when you are done"
         puts ""
     end
@@ -27,17 +27,24 @@ class CLI
             case input
             when "1"
                 Madlib1.new
+                main_menu
             when "2"
                 puts "Here is Mad Lib 2"
+                main_menu
             when "3"
                 puts "Here is Mad Lib 3"
+                main_menu
             when "4"
                 puts "Enter word to define"
                 word = gets.strip.downcase
                 API.new(word).definition
                 main_menu
-            when "menu"
+            else
+                puts " I am sorry.  I didn't understand that.".red
+                puts ""
                 main_menu
+            # when "menu"
+            #     main_menu
             end
         end  
     end

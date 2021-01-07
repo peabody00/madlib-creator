@@ -46,23 +46,25 @@ class Madlib1
 
     def complete_madlib
         puts""
-        puts "A vacation is when you take a trip to some #{new_list[0].red} place with your #{new_list[1].red}."
-        return_to_menu
+        puts "A vacation is when you take a trip to some #{new_list[0].magenta} place with your #{new_list[1].magenta}."
+        puts "---------------------------------------------------------------------"
+        puts ""
+        # return_to_menu
     end
 
-    def return_to_menu
-        puts ""
-        puts "---------------------------------------"
-        puts "Type 'menu' to return to the main menu."  # Want to add this functionality "Otherwise type 'exit' to quit program."
-        input = gets.strip.downcase
-        if input == "menu" #this creates a new CLI instance.  Need to fix that.  requires typing exit twice to exit.
-            CLI.new.call
-        # elsif input == "exit"
-        #     CLI.new.exit_program
-        # How do I get the program to exit from here?
-        else
-            puts "I'm sorry.  I didn't understand that."
-            return_to_menu
-        end
-    end
+    # def return_to_menu
+    #     puts ""
+    #     puts "---------------------------------------"
+    #     puts "Type 'menu' to return to the main menu."  # Want to add this functionality "Otherwise type 'exit' to quit program."
+    #     input = gets.strip.downcase
+    #     if input == "menu" #this creates a new CLI instance.  Need to fix that.  requires typing exit twice to exit.
+    #         CLI.new.call
+    #     # elsif input == "exit"
+    #     #     CLI.new.exit_program
+    #     # How do I get the program to exit from here?
+    #     else
+    #         puts "I'm sorry.  I didn't understand that."
+    #         return_to_menu
+    #     end
+    # end
 end
