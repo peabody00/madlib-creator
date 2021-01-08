@@ -47,7 +47,7 @@ class API
     end
 
     def random_word
-        @url_combined = URI(URL + "?partOfSpeech=" + @part_of_speech + "&random=true&frequencyMin=5.50&limit=1")
+        @url_combined = URI(URL + "?partOfSpeech=" + @part_of_speech + "&random=true&lettersmin=4&frequencyMin=5.25&limit=1")
         self.connection(url_combined)
         @word_hash["word"]
     end

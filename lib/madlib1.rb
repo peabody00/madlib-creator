@@ -2,14 +2,15 @@ class Madlib1
     attr_reader :word_list, :new_list
     
     def initialize
-        @word_list = ["adjective", "noun"]
+        @word_list = 
+        ["adjective", "adjective", "noun", "noun", "noun", "adjective", "noun", "verb", "verb", "adjective", "noun", "adjective", "noun", "noun", "adjective", "noun"]
         @new_list = []
         random_madlib
     end
 
     def random_madlib
         input = ""
-        puts "Would you like to randomly generate the words for this Mad Lib? (y/n)"
+        puts "Would you like to randomly generate the words for this Mad Lib (this can take some time)? (y/n)"
         input = gets.strip.downcase
         if input == "y"
             @word_list.each do |n| 
@@ -46,25 +47,20 @@ class Madlib1
 
     def complete_madlib
         puts""
-        puts "A vacation is when you take a trip to some #{new_list[0].magenta} place with your #{new_list[1].magenta}."
-        puts "---------------------------------------------------------------------"
+        puts "                       VACATIONS"
+        puts "
+A vacation is when you take a trip to some #{new_list[0].light_blue} place
+with your #{new_list[1].light_blue} family. Usually you go to some place that
+is near a(n) #{new_list[2].light_blue} or up on a(n) #{new_list[3].light_blue}.
+A good vacation place is one where you can ride in a(n) #{new_list[4].light_blue}
+or play a(n) #{new_list[5].light_blue} game or go hunting for a #{new_list[6].light_blue}.
+I like to #{new_list[7].light_blue} or #{new_list[8].light_blue} while on vacation.
+Last summer, my little brother fell in a/an #{new_list[9].light_blue} #{new_list[10].light_blue}
+and got a(n) #{new_list[11].light_blue} #{new_list[12].light_blue} all over his #{new_list[13].light_blue}.  Parents need
+vacations more than kids because parents are always very
+#{new_list[14].light_blue} and because they have to work many hours,
+every day, all year, earning #{new_list[15].light_blue} to pay for the vacation."
+        puts "---------------------------------------------------------------"
         puts ""
-        # return_to_menu
     end
-
-    # def return_to_menu
-    #     puts ""
-    #     puts "---------------------------------------"
-    #     puts "Type 'menu' to return to the main menu."  # Want to add this functionality "Otherwise type 'exit' to quit program."
-    #     input = gets.strip.downcase
-    #     if input == "menu" #this creates a new CLI instance.  Need to fix that.  requires typing exit twice to exit.
-    #         CLI.new.call
-    #     # elsif input == "exit"
-    #     #     CLI.new.exit_program
-    #     # How do I get the program to exit from here?
-    #     else
-    #         puts "I'm sorry.  I didn't understand that."
-    #         return_to_menu
-    #     end
-    # end
 end
