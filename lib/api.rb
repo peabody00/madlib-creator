@@ -16,7 +16,7 @@ class API
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
         request = Net::HTTP::Get.new(url_combined)
-        request["x-rapidapi-key"] = '47a914a770mshc0ef88da34b2c87p138bc9jsnd163c096c2f6'
+        request["x-rapidapi-key"] = API_KEY
         request["x-rapidapi-host"] = 'wordsapiv1.p.rapidapi.com'
 
         response = http.request(request)
@@ -39,32 +39,40 @@ class API
                     end
                     word_array.push(var2)
                 end
-                puts word_array[1].capitalize.blue + " - " + word_array[0].blue
+                puts word_array[1].capitalize.light_cyan + " - " + word_array[0].light_cyan
             end
         end
-        puts "-------------------------".blue
+        puts "-------------------------".light_cyan
         puts ""
     end
 
     def random_word
-        @url_combined = URI(URL + "?partOfSpeech=" + @part_of_speech + "&random=true&lettersmin=4&frequencyMin=5.25&limit=1")
+        @url_combined = URI(URL + "?partOfSpeech=" + @part_of_speech + "&random=true&lettersmin=4&frequencyMin=3.00&limit=1")
         self.connection(url_combined)
         @word_hash["word"]
     end
 
     def valid_partofspeech?
-        @url_combined = URI(URL + @word + "/definitions")
-        self.connection(url_combined)
+        if @word.include? " "
+            false
+        else
+            @url_combined = URI(URL + @word + "/definitions")
+            self.connection(url_combined)
 
-        part_array = []
-        word_hash["definitions"].each do |def_hash|
-            def_hash.each do |var1, var2|
-                if var1 == "partOfSpeech"
-                    part_array << var2
+            part_array = []
+            if @word_hash["success"] == false
+                false
+            else
+                word_hash["definitions"].each do |def_hash|
+                    def_hash.each do |var1, var2|
+                        if var1 == "partOfSpeech"
+                        part_array << var2
+                        end
+                    end
                 end
             end
+            part_array.include?(part_of_speech)
         end
-        part_array.include?(part_of_speech)
     end
 
 end

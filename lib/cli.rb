@@ -1,30 +1,24 @@
 class CLI
 
     def call
-        puts ""
-        puts "Welcome to the Mad Lib Creator & Dictionary"
-        puts ""
-        puts "Choose one of the Mad Libs to fill out or use the dictionary feature to look".light_green
-        puts "up any new words you learn from the random word feature in each Mad Lib.".light_green
-        puts ""
+        puts "\nWelcome to the Mad Lib Creator & Dictionary\n"
+        puts "\nChoose one of the Mad Libs to fill out or use the dictionary feature to look\nup any new words you learn from the random word feature in each Mad Lib.\n".light_green
 
         main_menu
         user_input
-        # exit_program
     end
 
     def main_menu
         puts "Please enter the number for one of the following options:"
         puts "1. Mad Lib - Vacations"
-        puts "2. Mad Lib 2"
-        puts "3. Mad lib 3"
+        puts "2. Mad Lib - A Trip to the Farm"
+        puts "3. Mad lib - Camping"
         puts "4. Define word"
         puts "Type 'exit' when you are done."
     end
 
     def user_input
         input = ""
-        # while input != "exit"
         loop do
             input = gets.strip.downcase
             case input
@@ -49,16 +43,15 @@ class CLI
                 puts ""
                 puts " I am sorry.  I didn't understand that.".red
                 puts ""
-            #     # main_menu
             end
         end  
     end
 
     def exit_program
-        puts "--------------------------------------------------------"
+        puts "--------------------------------------------------------".light_blue
         puts "Thanks for trying the Mad Lib Creator & Dictionary"
         puts "Dictionary functionality from WordsAPI"
         puts "Mad Libs created by Leonard Stern and Roger Price, 1953."
-        puts "--------------------------------------------------------"
+        puts "--------------------------------------------------------".light_blue
     end
 end
