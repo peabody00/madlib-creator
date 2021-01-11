@@ -4,7 +4,11 @@ Welcome to the Mad Lib Creator & Dictionary.  This CLI program is meant to be a 
 
 ## Installation
 
-After you download or clone the github repository simply run `./bin/madlib` from the project directory.
+This program requires API access to [WordsAPI](https://rapidapi.com/dpventures/api/WordsAPI) from [RapidAPI](https://rapidapi.com/marketplace).
+
+Sign up for a RapidAPI account and then subscirbe to WordsAPI.  Once you have subscribed you should have access to an API key for your account.  Download or clone my github repository.  In my program the `environment.rb` requires a file called `secrets.rb`.  Create this file in your main program folder.  In that file make a constant that equals your API key. `API_KEY = '<APIkey>'`.  Now when the program needs to make a connection to the API it has the key that is required.  If you push code back to github be sure to exclude the `secretes.rb` file.
+
+You should now be able to simply run `./bin/madlib` from the project directory.
 
 ## Usage
 
