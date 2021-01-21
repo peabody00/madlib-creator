@@ -3,7 +3,6 @@ require 'net/http'
 require 'openssl'
 require 'json'
 require 'colorize'
-require 'pry'
 
 require_relative '../lib/cli'
 require_relative '../lib/madlib1'
