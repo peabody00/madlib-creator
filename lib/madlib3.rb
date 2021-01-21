@@ -31,12 +31,17 @@ class Madlib3
         @word_list.each do |word|
             puts "Enter a(n) #{word.green} or type 'random' for a random #{word.green}"
             input = gets.strip.downcase
-                if input != "random"            
+            # binding.pry
+            if input.empty?
+                input = " "
+            end
+                if input != "random"          
                     valid = API.new(input,word).valid_partofspeech?
                     while valid == false
                         puts "I am sorry.  Your word does not appear to be a(n) #{word.green}.  Please try again."
                         input = gets.strip.downcase
                         valid = API.new(input,word).valid_partofspeech?
+                        # if you misspell random it validates but then forces you to do a real word.  Can't do random anymore.
                     end
                     @new_list << input
                 else

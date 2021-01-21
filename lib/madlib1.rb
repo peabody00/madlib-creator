@@ -31,6 +31,7 @@ class Madlib1
         @word_list.each do |word|
             puts "Enter a(n) #{word.green} or type 'random' for a random #{word.green}"
             input = gets.strip.downcase
+            # binding.pry
             if input.empty?
                 input = " "
             end
